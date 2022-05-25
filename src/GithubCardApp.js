@@ -1,5 +1,5 @@
 import React from 'react';
-import './AppVersionDeux.css';
+import './GithubCardApp.css';
 /*function AppVersionDeux({title}) {
     return (
         <div className="header">{title}</div>
@@ -27,7 +27,7 @@ import axios from "axios";
 
 const CardList = (props) => (
     <div>
-        {props.profiles.map(profile => <Card {...profile}/>)}
+        {props.profiles.map(profile => <Card key={profile.id}{...profile}/>)}
     </div>
 );
 
@@ -71,7 +71,7 @@ class Form extends React.Component {
     }
 }
 
-class AppVersionDeux extends React.Component {
+class GithubCardApp extends React.Component {
     state = {
         profiles: [],
     }
@@ -94,4 +94,4 @@ class AppVersionDeux extends React.Component {
     }
 }
 
-export default AppVersionDeux;
+export default GithubCardApp;
