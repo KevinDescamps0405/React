@@ -5,7 +5,7 @@ import {useState} from "react";
 function Button(props) {
     return (
         <button onClick={props.chips}>
-            +1
+            +{props.increment}
         </button>
     );
 }
@@ -24,7 +24,8 @@ function App() {
     const incrementCounter = () => setCounter(counter + 1)
     return (
         <div>
-            <Button chips={incrementCounter}/>
+            <Button chips={incrementCounter} increment={5}/>
+            <Button chips={incrementCounter} increment={10}/>
             <Display message={counter}/>
         </div>
     );
