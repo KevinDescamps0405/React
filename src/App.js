@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
+import AppDeux from "./AppDeux";
 
 function Button(props) {
     const handleClick = () => props.chips(props.increment)
@@ -25,9 +25,14 @@ function App() {
     const incrementCounter = (incrementValue) => setCounter(counter + incrementValue)
     return (
         <div>
+            <div>
             <Button chips={incrementCounter} increment={5}/>
             <Button chips={incrementCounter} increment={10}/>
             <Display message={counter}/>
+            </div>
+            <div>
+                <AppDeux />
+            </div>
         </div>
     );
 }
