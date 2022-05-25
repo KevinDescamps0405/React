@@ -31,9 +31,9 @@ const testData = [
 ];
 
 const CardList = (props) => (
-        <div>
-            {props.profiles.map(profile => <Card {...profile}/>)}
-        </div>
+    <div>
+        {props.profiles.map(profile => <Card {...profile}/>)}
+    </div>
 
 );
 
@@ -53,10 +53,21 @@ class Card extends React.Component {
 }
 
 class Form extends React.Component {
+    state = {username : ''}
+    userNameInput = React.createRef();
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("SUBMIT" + this.state.username)
+    };
+
     render() {
         return (
-            <form action="">
-                <input type="text" placeholder="Github username"/>
+            <form onSubmit={this.handleSubmit}>
+                <input type="text"
+                       value={this.state.username}
+                       onChange={event => this.setState({username : event.target.value})}
+                       placeholder="Github username"
+                       ref={this.userNameInput} required/>
                 <button>Add Card</button>
             </form>
         );
@@ -64,15 +75,16 @@ class Form extends React.Component {
 }
 
 class AppVersionDeux extends React.Component {
-/*    constructor(props) {
-        super(props);
-        this.state = {
-            profiles:testData,
-        };
-    }*/
+    /*    constructor(props) {
+            super(props);
+            this.state = {
+                profiles:testData,
+            };
+        }*/
     state = {
-        profiles : testData,
+        profiles: testData,
     }
+
     render() {
         return (
             <div>
